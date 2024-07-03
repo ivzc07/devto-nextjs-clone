@@ -17,8 +17,16 @@ function createUser(data){
     })
 }
 
+function getUser(id){
+    return fetch(`${API_URL}/users/${id}`,{
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},   
+    })
+}
+
 module.exports = {
     dataValidation,
-    createUser
+    createUser,
+    getUser
 }
 

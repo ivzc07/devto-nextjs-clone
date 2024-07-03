@@ -4,17 +4,21 @@ import { useForm } from 'react-hook-form';
 import { Toaster, toast } from 'sonner';
 import { useRouter } from 'next/router';
 export default function CreateAccountForm(){
-
+    const router = useRouter();
     const {register, handleSubmit, formState: {errors,isValid,isSubmitted},reset, setFocus} = useForm({
         mode: 'onChange'
     })
+
+
     async function onSubmit (data) {
-        const router = useRouter();
+        
         if(data.password === data.passwordConfirmation){
             try{
                 const response = await createUser(data);
                 const json = await response.json();
                 console.log(json)
+                router.push('/login')
+                toast.success('Account Created')
                 
             }catch (error){
                 console.error('Error', error);

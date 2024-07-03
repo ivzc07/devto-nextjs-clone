@@ -17,15 +17,16 @@ export default function Form(){
             
             if (json?.data?.token) {
               localStorage.setItem('token', json.data.token);
-              toast.success('Logged');
               router.push('/')
+              console.log(json.data)
+              toast.success('Logged');
             } else {
               toast.warning('Log Failed');
             }
-          } catch (error) {
-                console.error('Error', error);
-                toast.error('Error ' + error.message);
-          }
+        } catch (error) {
+            console.error('Error', error);
+            toast.error('Error ' + error.message);
+        }
         
     }
 
