@@ -19,6 +19,7 @@ export default function TabasCenter(){
             tabs.map((item,idx)=> {
                 return(
                     <Tab
+                      key={`tab-${idx}`}  
                       name ={item.name}
                     />
                 )

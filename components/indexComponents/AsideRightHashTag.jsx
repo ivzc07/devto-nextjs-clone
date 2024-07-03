@@ -14,8 +14,9 @@ export default function AsideRighHashTags(){
           <h2 className="text-lg font-bold mb-2">#discuss</h2>
           <p className="text-sm text-gray-600 mb-4">Discussion threads targeting the whole community</p>
           <ul>
-            {discussions.map((discussion, index) => (
+            {discussions.map((discussion, idx) => (
                <AsideHashtag
+                    key={`aside-hashtag-${idx}`} 
                     title={discussion.title}
                     comments={discussion.comments}
                />

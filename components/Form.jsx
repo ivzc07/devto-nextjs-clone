@@ -1,4 +1,4 @@
-import dataValidation from "@/api/api";
+import {dataValidation} from "@/api/api";
 import { useForm } from "react-hook-form";
 import { Toaster,toast } from "sonner";
 import { useRouter } from "next/router";
@@ -8,6 +8,8 @@ export default function Form(){
         mode: 'onChange'
     })
 
+
+
     async function onSubmit (data){
         try {
             const response = await dataValidation(data);
@@ -16,7 +18,7 @@ export default function Form(){
             if (json?.data?.token) {
               localStorage.setItem('token', json.data.token);
               toast.success('Logged');
-              router.push('/index')
+              router.push('/')
             } else {
               toast.warning('Log Failed');
             }
@@ -67,6 +69,7 @@ export default function Form(){
                     <button 
                         className="w-full py-2 bg-blue-700 text-white rounded"
                         type='submit'
+                        
                         
                     >
                             Log in
