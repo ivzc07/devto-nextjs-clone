@@ -1,4 +1,5 @@
 import { getPost, getUser } from "@/api/api";
+import clsx from "clsx";
 import React, { useState, useEffect } from 'react';
 
 export default function PostCard() {
@@ -29,7 +30,7 @@ export default function PostCard() {
   }, []);
   
   if (loading) {
-    return <div className="p-4">Loading...</div>; 
+    return <div className="p-4"></div>; 
   }
 
   if (!posts || posts.length === 0) {
@@ -43,15 +44,13 @@ export default function PostCard() {
         return(
           <a href={`/${post._id}`} key={`post-card-${idx}`}>
             <div  className="w-full mx-auto bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden mb-4">
-              <div className="relative">
+              <div className={clsx('relative',{'hidden': (idx !=0)})}>
                 <img
                   key={`post-card-img-${idx}`}
                   src={post.image} 
                   alt="Post Image"
                   className="w-full"
-                />
-                <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center text-white flex items-center justify-center text-4xl font-bold">
-                </div>
+                /> 
               </div>
               <div className="p-4">
                 <div className="flex items-center mb-2">
