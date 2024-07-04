@@ -53,7 +53,11 @@ export default function NavBar() {
         <div className="flex justify-between h-16">
           <div className="flex w-[60%]">
             <div className="flex items-center">
-              <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
+              <a href='/'>
+                <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
+              </a>
+              
+              
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8 w-[70%]">
               <div className="relative flex items-center w-[100%]">

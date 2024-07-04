@@ -21,7 +21,7 @@ export default function PostCard() {
       console.log(error);
     } finally {
       setLoading(false); 
-  }
+    }
 }
   useEffect(() => {
     getAllPosts();
@@ -29,7 +29,7 @@ export default function PostCard() {
   }, []);
   
   if (loading) {
-    return <div>Loading...</div>; 
+    return <div className="p-4">Loading...</div>; 
   }
 
   if (!posts || posts.length === 0) {
@@ -41,41 +41,44 @@ export default function PostCard() {
       {posts.map((post, idx) => {
        
         return(
-          <div key={idx} className="w-full mx-auto bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden mb-4">
-          <div className="relative">
-            <img
-              src={post.image} 
-              alt="Post Image"
-              className="w-full"
-            />
-            <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center text-white flex items-center justify-center text-4xl font-bold">
-              
-            </div>
-          </div>
-          <div className="p-4">
-            <div className="flex items-center mb-2">
-              <img
-                src={post.user.profilePic} 
-                alt="Avatar"
-                className="w-10 h-10 rounded-full mr-4"
-              />
-              <div>
-                <h3 className="text-sm font-medium">{formatDate(post.createdAt)} </h3>
-                <p className="text-xs text-gray-500">{post.user.name}</p>
+          <a href={`/${post._id}`} key={`post-card-${idx}`}>
+            <div  className="w-full mx-auto bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden mb-4">
+              <div className="relative">
+                <img
+                  key={`post-card-img-${idx}`}
+                  src={post.image} 
+                  alt="Post Image"
+                  className="w-full"
+                />
+                <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center text-white flex items-center justify-center text-4xl font-bold">
+                </div>
+              </div>
+              <div className="p-4">
+                <div className="flex items-center mb-2">
+                  <img
+                    key={`post-card-img-avatar-${idx}`}
+                    src={post.user.profilePic} 
+                    alt="Avatar"
+                    className="w-10 h-10 rounded-full mr-4"
+                  />
+                <div>
+                  <h3 key={`post-card-date-${idx}`} className="text-sm font-medium">{formatDate(post.createdAt)} </h3>
+                  <p className="text-xs text-gray-500">{post.user.name}</p>
+                </div>
+              </div>
+              <h2 key={`post-card-title-${idx}`} className="text-xl font-bold mb-2">{post.title}</h2>
+            
+              <div className="flex items-center text-gray-500 text-sm">
+                <span className="mr-4">❤️🤣👏🔥 reactions</span>
+                <span className="mr-4">💬  comments</span>
+                <span></span>
+               </div>
               </div>
             </div>
-            <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-            
-            <div className="flex items-center text-gray-500 text-sm">
-              <span className="mr-4">❤️🤣👏🔥 reactions</span>
-              <span className="mr-4">💬  comments</span>
-              <span></span>
-            </div>
-          </div>
-        </div>
+          </a>
         )
         
-})}
+      })}
     </>
   );
 }

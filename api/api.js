@@ -43,11 +43,19 @@ function createPost(data,token){
     })
 }
 
+function getPostById (title){
+        return fetch(`${API_URL}/posts/search?search=${title}`,{
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'},   
+        })
+}
+
 module.exports = {
     dataValidation,
     createUser,
     getUser,
     getPost,
-    createPost
+    createPost,
+    getPostById
 }
 

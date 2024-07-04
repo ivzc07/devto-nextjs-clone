@@ -40,8 +40,8 @@ export default function ContentContainer(){
                     </div>
 
                 </div>
-                <div ></div>
-</div>
+                <div></div>
+            </div>
         </div>
     )
 }
