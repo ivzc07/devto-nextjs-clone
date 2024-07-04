@@ -24,9 +24,30 @@ function getUser(id){
     })
 }
 
+function getPost(){
+    return fetch(`${API_URL}/posts/search?search=`,{
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},   
+    })
+}
+
+function createPost(data,token){
+    return fetch(`${API_URL}/posts/`,{
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+        }
+        
+    })
+}
+
 module.exports = {
     dataValidation,
     createUser,
-    getUser
+    getUser,
+    getPost,
+    createPost
 }
 
