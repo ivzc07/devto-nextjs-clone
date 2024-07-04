@@ -4,7 +4,7 @@ import Form from "@/components/Form";
 export default function Login (){
 
     return (
-        <div className="flex justify-center items-center min-h-screen flex-col">
+        <div className="flex justify-center items-center min-h-screen flex-col max-w">
           <div className="text-center mb-6">
             <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV Community Logo" className="w-12 h-12 mx-auto" />
             <h2 className="text-2xl font-bold">Join the DEV Community</h2>
@@ -12,11 +12,13 @@ export default function Login (){
           </div>
             <MediaButton />
             
-          <div className="w-[35%]">
+          <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
            
-            <div className="text-center my-5 text-gray-600">OR</div>
-            <Form/>
-          </div>
+            <div className="text-center my-5 text-gray-600 ">OR</div>
+              <Form/>
+            </div>
+            
+          
           <p className="mt-5 text-xs text-gray-500">
             By signing in, you are agreeing to our <a href="#" className="text-blue-600">privacy policy</a>, <a href="#" className="text-blue-600">terms of use</a>, and <a href="#" className="text-blue-600">code of conduct</a>.
           </p>

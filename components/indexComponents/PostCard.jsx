@@ -43,7 +43,7 @@ export default function PostCard() {
        
         return(
           <a href={`/${post._id}`} key={`post-card-${idx}`}>
-            <div  className="w-full mx-auto bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden mb-4">
+            <div  className="w-full bg-white border border-gray-300 rounded-lg shadow-md  mb-4">
               <div className={clsx('relative',{'hidden': (idx !=0)})}>
                 <img
                   key={`post-card-img-${idx}`}

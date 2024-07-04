@@ -6,8 +6,9 @@ import { getUser } from '@/api/api';
 
 export default function NavBar() {
   const [token, setToken] = useState(null);
-  const [userInfo, setUserInfo] = useState(null); // Estado para almacenar la información del usuario
-  const [isLoading, setIsLoading] = useState(true); // Estado para manejar la carga
+  const [userInfo, setUserInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -16,31 +17,39 @@ export default function NavBar() {
       setToken(tokenFromStorage);
 
       if (tokenFromStorage && JWT_SECRET) {
-        getUserById(tokenFromStorage); // Llamar a getUserById con el token
+        getUserById(tokenFromStorage);
       }
     }
   }, []);
 
-  const getUserById = async (token) => {
-    setIsLoading(true); // Inicia la carga
+  async function getUserById(token)  {
+    setIsLoading(true);
     try {
       const decoded = jwt.decode(token, JWT_SECRET);
       const id = decoded.id;
       const response = await getUser(id);
       const json = await response.json();
       const userInfo = json.data.userFound;
-      setUserInfo(userInfo); // Actualizar el estado con la información del usuario
-      console.log(userInfo);
+      setUserInfo(userInfo); 
     } catch (error) {
       console.error('Error', error);
-      // toast.error('Error ' + error.message);
+
     } finally {
-      setIsLoading(false); // Termina la carga
+      setIsLoading(false); 
     }
   };
 
   function handleClickLogin() {
     router.push('/login');
+  }
+
+  function toggleDropdown(){
+    setIsOpen(!isOpen);
+  };
+
+  function handleLogOut(){
+    window.location.reload();
+    localStorage.removeItem('token');
   }
 
   function handleClickCreate() {
@@ -117,10 +126,29 @@ export default function NavBar() {
               <button>
                 <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
                   {isLoading ? (
-                    <span className="text-gray-500"></span>
+                    <span></span>
                   ) : (
                     userInfo && userInfo.profilePic ? (
-                      <img src={userInfo.profilePic} alt="Profile" className="w-8 h-8 rounded-full" />
+                      <div className="relative">
+                        <img
+                          src={userInfo.profilePic}
+                          alt="Profile"
+                          className="w-8 h-8 rounded-full cursor-pointer"
+                          onClick={toggleDropdown}
+                        />
+                        {isOpen && (
+                          <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                            <div className="py-2">
+                                <button
+                                  className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                  onClick={handleLogOut}
+                                  >
+                                    Cerrar Sesión
+                                  </button>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     ) : (
                       <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
                         <span className="text-white text-xs font-bold">U</span>
