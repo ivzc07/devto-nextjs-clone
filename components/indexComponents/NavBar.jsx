@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-const  JWT_SECRET  = process.env.NEXT_PUBLIC_JWT_SECRET;
-const jwt = require('jsonwebtoken')
+import Link from 'next/link';
+const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
+const jwt = require('jsonwebtoken');
 import { getUser } from '@/api/api';
 
 export default function NavBar() {
@@ -22,7 +23,7 @@ export default function NavBar() {
     }
   }, []);
 
-  async function getUserById(token)  {
+  async function getUserById(token) {
     setIsLoading(true);
     try {
       const decoded = jwt.decode(token, JWT_SECRET);
@@ -30,24 +31,23 @@ export default function NavBar() {
       const response = await getUser(id);
       const json = await response.json();
       const userInfo = json.data.userFound;
-      setUserInfo(userInfo); 
+      setUserInfo(userInfo);
     } catch (error) {
       console.error('Error', error);
-
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
-  };
+  }
 
   function handleClickLogin() {
     router.push('/login');
   }
 
-  function toggleDropdown(){
+  function toggleDropdown() {
     setIsOpen(!isOpen);
-  };
+  }
 
-  function handleLogOut(){
+  function handleLogOut() {
     window.location.reload();
     localStorage.removeItem('token');
   }
@@ -62,11 +62,11 @@ export default function NavBar() {
         <div className="flex justify-between h-16">
           <div className="flex w-[60%]">
             <div className="flex items-center">
-              <a href='/'>
-                <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
-              </a>
-              
-              
+              <Link href="/">
+                <a>
+                  <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
+                </a>
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8 w-[70%]">
               <div className="relative flex items-center w-[100%]">
@@ -139,12 +139,12 @@ export default function NavBar() {
                         {isOpen && (
                           <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
                             <div className="py-2">
-                                <button
-                                  className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
-                                  onClick={handleLogOut}
-                                  >
-                                    Cerrar Sesión
-                                  </button>
+                              <button
+                                className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                onClick={handleLogOut}
+                              >
+                                Cerrar Sesión
+                              </button>
                             </div>
                           </div>
                         )}
@@ -164,4 +164,3 @@ export default function NavBar() {
     </nav>
   );
 }
-

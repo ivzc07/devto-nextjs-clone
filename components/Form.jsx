@@ -28,6 +28,10 @@ export default function Form() {
     }
   }
 
+  function onClickHandle(){
+    toast.warning('Not Available');
+  }
+
   return (
     <>
       <Toaster position="top-right" richColors />
@@ -69,7 +73,13 @@ export default function Form() {
           <label className="flex items-center text-gray-600">
             <input type="checkbox" className="mr-2" /> Remember me
           </label>
-          <a href="#" className="text-blue-600">Forgot password?</a>
+          <a 
+            href="#" 
+            className="text-blue-600"
+            onClick={onClickHandle}
+            >
+                Forgot password?
+        </a>
         </div>
 
         <button
