@@ -19,6 +19,8 @@ export default function NavBar() {
 
       if (tokenFromStorage && JWT_SECRET) {
         getUserById(tokenFromStorage);
+      } else {
+        setIsLoading(false); 
       }
     }
   }, []);
@@ -27,8 +29,14 @@ export default function NavBar() {
     setIsLoading(true);
     try {
       const decoded = jwt.decode(token, JWT_SECRET);
+      if (!decoded) {
+        throw new Error('Token decoding failed');
+      }
       const id = decoded.id;
       const response = await getUser(id);
+      if (!response.ok) {
+        throw new Error('Failed to fetch user');
+      }
       const json = await response.json();
       const userInfo = json.data.userFound;
       setUserInfo(userInfo);
