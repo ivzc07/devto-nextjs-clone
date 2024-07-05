@@ -127,7 +127,7 @@ export default function NavBar() {
                     <span></span>
                   ) : (
                     userInfo && userInfo.profilePic ? (
-                      <div className="relative">
+                      <button className="relative">
                         <img
                           src={userInfo.profilePic}
                           alt="Profile"
@@ -146,7 +146,7 @@ export default function NavBar() {
                             </div>
                           </div>
                         )}
-                      </div>
+                      </button>
                     ) : (
                       <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
                         <span className="text-white text-xs font-bold">U</span>
