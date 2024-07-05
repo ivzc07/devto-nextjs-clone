@@ -124,7 +124,7 @@ export default function NavBar() {
               <div className="relative">
                 {isLoading ? (
                   <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                    <span>Loading...</span>
+                    <span></span>
                   </div>
                 ) : (
                   userInfo && userInfo.profilePic ? (

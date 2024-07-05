@@ -27,19 +27,14 @@ export default function MediaButton() {
 
         <>
             {
-                buttonInfo.map((item,idx) => {
-                    return (
-                    <>
-                        <ButtonSocialMedia
-                            key = {`button-social-media-login-${idx}`}
-                            icon = {item.icon}
-                            title = {item.title}
-                            idx = {idx}
-                        />
-                    </>
-                        
-                    )
-                })
+                buttonInfo.map((item, idx) => (
+                    <ButtonSocialMedia
+                        key={`button-social-media-login-${idx}`}
+                        icon={item.icon}
+                        title={item.title}
+                        idx={idx}
+                    />
+                ))
             }
         </>
     )
