@@ -127,12 +127,16 @@ export default function NavBar() {
                     <span></span>
                   ) : (
                     userInfo && userInfo.profilePic ? (
-                      <button className="relative">
+                      <button 
+                      className="relative"
+                      onClick={toggleDropdown}
+                      
+                      >
                         <img
                           src={userInfo.profilePic}
                           alt="Profile"
                           className="w-8 h-8 rounded-full cursor-pointer"
-                          onClick={toggleDropdown}
+      
                         />
                         {isOpen && (
                           <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
