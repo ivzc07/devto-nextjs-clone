@@ -28,7 +28,7 @@ export default function AsideCard(){
               DEV Community is a community of 1,692,174 amazing developers
             </h2>
             <p className="text-gray-600 mb-4 text-left">
-              We're a place where coders share, stay up-to-date and grow their careers.
+              We re a place where coders share, stay up-to-date and grow their careers.
             </p>
             <button 
                 className="w-full bg-transparent border border-[#3B49DF] text-[#3B49DF] hover:bg-[#3B49DF] hover:text-white font-semibold py-2 px-4 rounded-lg mb-2"
