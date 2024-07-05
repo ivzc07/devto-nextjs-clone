@@ -123,25 +123,9 @@ export default function NavBar() {
               </div>
               <div className="relative">
                 {isLoading ? (
-                 <div className="relative w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={toggleDropdown}>
-                 <img
-                   src={userInfo.profilePic}
-                   alt="Profile"
-                   className="w-8 h-8 rounded-full"
-                 />
-                 {isOpen && (
-                   <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
-                     <div className="py-2">
-                       <button
-                         className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
-                         onClick={handleLogOut}
-                       >
-                         Cerrar Sesión
-                       </button>
-                     </div>
-                   </div>
-                 )}
-               </div>
+                  <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                    <span></span>
+                  </div>
                 ) : (
                   userInfo && userInfo.profilePic ? (
                     <div className="relative w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={toggleDropdown}>
