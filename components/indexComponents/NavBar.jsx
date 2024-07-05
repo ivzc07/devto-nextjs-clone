@@ -63,9 +63,7 @@ export default function NavBar() {
           <div className="flex w-[60%]">
             <div className="flex items-center">
               <Link href="/">
-                <a>
-                  <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
-                </a>
+                <img className="h-12 w-12" src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="DEV" />
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8 w-[70%]">
