@@ -14,7 +14,6 @@ export default function CreatePost(){
     async function onSubmit(data){
         try {
             const token = localStorage.getItem('token')
-            console.log(token)
             const response = await createPost(data,token);
             const json = await response.json();
             router.push('/')

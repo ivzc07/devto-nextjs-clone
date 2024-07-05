@@ -16,7 +16,7 @@ export default function PostCard() {
     try {
       const response = await getPost(); 
       const json = (await response.json()).data; 
-      console.log(json);
+      
       setPosts(json);
     } catch (error) {
       console.log(error);
