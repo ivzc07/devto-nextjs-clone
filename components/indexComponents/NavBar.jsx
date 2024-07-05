@@ -121,50 +121,39 @@ export default function NavBar() {
                 </svg>
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">6</span>
               </div>
-              <button>
-                <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                  {isLoading ? (
-                    <span>
-                      <button 
-                      className="relative"
-                      onClick={toggleDropdown}
-                      
-                      ></button>
-                    </span>
-                  ) : (
-                    userInfo && userInfo.profilePic ? (
-                      <button 
-                      className="relative"
-                      onClick={toggleDropdown}
-                      
-                      >
-                        <img
-                          src={userInfo.profilePic}
-                          alt="Profile"
-                          className="w-8 h-8 rounded-full cursor-pointer"
-      
-                        />
-                        {isOpen && (
-                          <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
-                            <div className="py-2">
-                              <button
-                                className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
-                                onClick={handleLogOut}
-                              >
-                                Cerrar Sesión
-                              </button>
-                            </div>
+              <div className="relative">
+                {isLoading ? (
+                  <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                    <span>Loading...</span>
+                  </div>
+                ) : (
+                  userInfo && userInfo.profilePic ? (
+                    <div className="relative w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={toggleDropdown}>
+                      <img
+                        src={userInfo.profilePic}
+                        alt="Profile"
+                        className="w-8 h-8 rounded-full"
+                      />
+                      {isOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                          <div className="py-2">
+                            <button
+                              className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
+                              onClick={handleLogOut}
+                            >
+                              Cerrar Sesión
+                            </button>
                           </div>
-                        )}
-                      </button>
-                    ) : (
-                      <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
-                        <span className="text-white text-xs font-bold">U</span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </button>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
+                      <span className="text-white text-xs font-bold">U</span>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
           )}
         </div>
