@@ -13,7 +13,7 @@ export default function ContentContainer() {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr,7.5fr,1fr] gap-4 w-full">
                 <div className="hidden lg:block"></div>
                 <div className="flex flex-col lg:flex-row gap-[15px]">
-                    <div className="hidden lg:flex w-full lg:w-[20%] flex-col gap-4">
+                    <div className="hidden lg:flex w-full lg:w-[20%] flex-col gap-0">
                         <AsideCard />
                         <AsideBarMenu />
                         <SocialIconsBar />
