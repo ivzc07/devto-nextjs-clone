@@ -34,6 +34,7 @@ export default function MediaButton() {
                             key = {`button-social-media-login-${idx}`}
                             icon = {item.icon}
                             title = {item.title}
+                            idx = {idx}
                         />
                     </>
                         
