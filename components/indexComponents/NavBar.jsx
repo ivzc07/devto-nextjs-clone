@@ -162,8 +162,8 @@ export default function NavBar() {
                       type="submit"
                       onClick={handleLogOut}
                     >
-                Create Post
-              </button>
+                      Log Out
+                    </button>
                   )
                 )}
               </div>
