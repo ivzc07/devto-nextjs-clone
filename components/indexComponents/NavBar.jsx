@@ -136,7 +136,7 @@ export default function NavBar() {
                   </div>
                 ) : (
                   userInfo && userInfo.profilePic ? (
-                    <div className="relative w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={toggleDropdown}>
+                    <div className="relative w-8 h-8 rounded-full bg-gray-300 flex flex-col items-center justify-center cursor-pointer" onClick={toggleDropdown}>
                       <img
                         src={userInfo.profilePic}
                         alt="Profile"
@@ -146,7 +146,7 @@ export default function NavBar() {
                         <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
                           <div className="py-2">
                             <button
-                              className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100"
+                              className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100 "
                               onClick={handleLogOut}
                             >
                               Cerrar Sesión
@@ -158,6 +158,12 @@ export default function NavBar() {
                   ) : (
                     <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
                       <span className="text-white text-xs font-bold">U</span>
+                      <button
+                              className="w-full px-4 py-2 text-gray-800 hover:bg-gray-100 "
+                              onClick={handleLogOut}
+                            >
+                              Cerrar Sesión
+                            </button>
                     </div>
                   )
                 )}
