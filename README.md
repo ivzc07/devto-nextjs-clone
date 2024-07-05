@@ -39,3 +39,4 @@ From now we have our web page running in http//:localhost:3000
 
 API Repository: https://github.com/ivzc07/desafio-backend
 API Deployment: https://desafio-backend-o9nm.onrender.com
+Repository Deployment: https://devto-nextjs-clone-4s2c1cbhu-isaacs-projects-c227f5d2.vercel.app/

@@ -156,9 +156,14 @@ export default function NavBar() {
                       )}
                     </div>
                   ) : (
-                    <div className="w-6 h-6 bg-blue-600 grid place-items-center rounded-full">
-                      <span className="text-white text-xs font-bold">U</span>
-                    </div>
+                    <button
+                      className="ml-4 px-4 py-2 border border-[#3B49DF] text-sm font-medium rounded-md text-[#3B49DF] bg-white hover:bg-[#3B49DF]
+                hover:text-white"
+                      type="submit"
+                      onClick={handleLogOut}
+                    >
+                Create Post
+              </button>
                   )
                 )}
               </div>
